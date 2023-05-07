@@ -133,6 +133,25 @@ public class SortSimulation {
      * @param randomNumbers
      */
     private static void simulateAscendingSelectionSort(List<Integer> randomNumbers) {
+         int listSize = randomNumbers.size();
+            for(int i=0; i<listSize-1; i++){
+                System.out.println("Pass " + (i+1));
+                printNumberList(randomNumbers);
+                int minIndex = i;
+                for(int j=i+1; j<listSize; j++){
+                    if(randomNumbers.get(j) < randomNumbers.get(minIndex)){
+                        minIndex = j;
+                    }
+                }
+                if(minIndex != i){
+                    int temp = randomNumbers.get(i);
+                    randomNumbers.set(i, randomNumbers.get(minIndex));
+                    randomNumbers.set(minIndex, temp);
+                }
+                System.out.println("\nResult of Pass " + (i+1));
+                printNumberList(randomNumbers);
+                System.out.println("\n");
+            }
     }
 
     /**
